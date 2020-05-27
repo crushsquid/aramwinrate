@@ -21,7 +21,6 @@ def get_account_id(name, region):
     account_id = summoner_info['accountId']
     return account_id
 
-# Note: QueueID for aram is 450
 # Returns list of game_ids corresponding to aram games played by this player
 def get_aram_games_not_limited(account_id, region, begin, end):
     match_info = watcher.match.matchlist_by_account(region, account_id, queue=[constants.ARAM], begin_index=begin, end_index=end)
@@ -43,10 +42,10 @@ def get_match(game_id, region):
     return limiter.call(watcher.match.by_id, region, game_id)
 
 # Returns (win: bool, champ_name: string) for whether player won or not
-def get_match_info(match, username, champ_dict):
+def get_match_info(match, account_id, champ_dict):
     # Get participant id from username
     participant_identities = match['participantIdentities']
-    participant_id = next(participant['participantId'] for participant in participant_identities if participant['player']['summonerName'] == username)
+    participant_id = next(participant['participantId'] for participant in participant_identities if participant['player']['accountId'] == account_id)
     # Get champ + win status from participant id
     participants_info = match['participants']
     participant_info = None
@@ -61,15 +60,14 @@ def get_match_info(match, username, champ_dict):
     return (win, champ)
 
 # Returns list of (win: bool, champ_name: string) for a given player
-def get_aram_history(username, region, game_count, champ_dict, batch_size=10):
+def get_aram_history(account_id, region, game_count, champ_dict, batch_size=10):
     aram_history, aram_games = [], []
-    account_id = get_account_id(username, region)
     for start in range(0, game_count, batch_size):
         aram_games_batch = get_aram_games(account_id, region, start, start + batch_size)
         aram_games.extend(aram_games_batch)
     for game in aram_games:
         match = get_match(game, region)
-        match_info = get_match_info(match, username, champ_dict)
+        match_info = get_match_info(match, account_id, champ_dict)
         aram_history.append(match_info)
     return aram_history
 
@@ -87,20 +85,21 @@ def output_history(aggregated_history, username):
     rows = []
     for champ, entry in aggregated_history.items():
         win_count, games_played = entry
-        winrate = entry[0] / max(1, entry[1])
+        winrate = win_count / max(1, games_played)
         row = [champ, win_count, games_played, winrate]
         rows.append(row)
     field_names = ['champion', 'wins', 'games played', 'winrate']
     df = pd.DataFrame(rows, columns=field_names)
     df.sort_values(by=['games played'], inplace=True, ascending=False)
-    df.to_csv(username + '.csv', index=False)
+    df.to_csv('data/' + username + '.csv', index=False)
 
 # Outputs csv file with winrates from given player for last n games
 def process_player(username, game_count):
     print('ETA: ~%d minutes' % (game_count/20))
     champ_dict = get_champ_dict()
-    aram_history = get_aram_history(username, constants.REGION_NA, game_count, champ_dict)
+    account_id = get_account_id(username, constants.REGION_NA)
+    aram_history = get_aram_history(account_id, constants.REGION_NA, game_count, champ_dict)
     aggregated_history = aggregate_aram_history(aram_history, champ_dict)
     output_history(aggregated_history, username)
 
-process_player('crushsquidz', 100)
+process_player('Dorito Sensei', 50)
