@@ -82,6 +82,7 @@ def output_history(aggregated_history, username):
     for champ, entry in aggregated_history.items():
         win_count, games_played = entry
         winrate = win_count / max(1, games_played)
+        winrate = round(100*winrate, 1)
         row = [champ, win_count, games_played, winrate]
         rows.append(row)
     field_names = ['champion', 'wins', 'games played', 'winrate']
