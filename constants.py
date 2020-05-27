@@ -11,9 +11,5 @@ REGION_OC = 'oc1'
 REGION_TR = 'tr1'
 REGION_UR = 'ru'
 
-# Version number
-# TODO: Dynamically retrieve the most up to date version
-VERSION = '10.10.3216176'
-
 # Queue codes
 ARAM = '450'

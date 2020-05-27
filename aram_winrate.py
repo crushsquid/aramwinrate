@@ -1,9 +1,3 @@
-# TODO: Make executable with command line arguments
-# TODO: Properly handle various ApiErrors
-# TODO: Figure out how to get all games without specifying game count
-#       Other tools query until error/empty response, will be easier to do after error handling is done
-# TODO(?): Fully document code (depends on how many people will be working on this)
-
 from riotwatcher import LolWatcher, ApiError
 from api_key import key
 from rate_limit import RateLimitRule, RateLimiter
@@ -31,8 +25,10 @@ def get_aram_games(account_id, region, begin, end):
     return limiter.call(get_aram_games_not_limited, account_id, region, begin, end)
 
 # Returns dict of {champion_key: champion_name}
-def get_champ_dict():
-    champion_info = limiter.call(watcher.data_dragon.champions, constants.VERSION)
+def get_champ_dict(region):
+    versions = limiter.call(watcher.data_dragon.versions_for_region, region)
+    version = versions['n']['champion']
+    champion_info = limiter.call(watcher.data_dragon.champions, version)
     champion_names = champion_info['data']
     champ_dict = {champ_entry['key']: champ_name for champ_name, champ_entry in champion_names.items()}
     return champ_dict
@@ -96,7 +92,7 @@ def output_history(aggregated_history, username):
 # Outputs csv file with winrates from given player for last n games
 def process_player(username, game_count):
     print('ETA: ~%d minutes' % (game_count/20))
-    champ_dict = get_champ_dict()
+    champ_dict = get_champ_dict(constants.REGION_NA)
     account_id = get_account_id(username, constants.REGION_NA)
     aram_history = get_aram_history(account_id, constants.REGION_NA, game_count, champ_dict)
     aggregated_history = aggregate_aram_history(aram_history, champ_dict)
