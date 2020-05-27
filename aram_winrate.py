@@ -46,10 +46,15 @@ def get_match(game_id, region):
 def get_match_info(match, username, champ_dict):
     # Get participant id from username
     participant_identities = match['participantIdentities']
-    participant_id = next(participant for participant in participant_identities if participant['player']['summonerName'] == username)
+    participant_id = next(participant['participantId'] for participant in participant_identities if participant['player']['summonerName'] == username)
     # Get champ + win status from participant id
     participants_info = match['participants']
+    participant_info = None
+    for participant in participants_info:
+        if participant['participantId'] == participant_id:
+            participant_info = participant
     participant_info = next(participant for participant in participants_info if participant['participantId'] == participant_id)
+
     win = participant_info['stats']['win']
     champ_id = participant_info['championId']
     champ = champ_dict[str(champ_id)]
@@ -98,4 +103,4 @@ def process_player(username, game_count):
     aggregated_history = aggregate_aram_history(aram_history, champ_dict)
     output_history(aggregated_history, username)
 
-process_player('crushsquidz', 150)
+process_player('crushsquidz', 100)
