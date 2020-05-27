@@ -3,6 +3,7 @@ from api_key import key
 from rate_limit import RateLimitRule, RateLimiter
 import pandas as pd
 import constants
+import sys
 
 watcher = LolWatcher(key)
 
@@ -76,8 +77,8 @@ def aggregate_aram_history(aram_history, champ_dict):
         champ_wl[champ] = (win_count, games_played)
     return champ_wl
 
-# Output aggregated history to csv file w/ winrate
-def output_history(aggregated_history, username):
+# Format aggregated history into pandas dataframe
+def format_history(aggregated_history, username):
     rows = []
     for champ, entry in aggregated_history.items():
         win_count, games_played = entry
@@ -88,15 +89,33 @@ def output_history(aggregated_history, username):
     field_names = ['champion', 'wins', 'games played', 'winrate']
     df = pd.DataFrame(rows, columns=field_names)
     df.sort_values(by=['games played'], inplace=True, ascending=False)
-    df.to_csv('data/' + username + '.csv', index=False)
+    return df
 
-# Outputs csv file with winrates from given player for last n games
-def process_player(username, game_count):
-    print('ETA: ~%d minutes' % (game_count/20))
-    champ_dict = get_champ_dict(constants.REGION_NA)
-    account_id = get_account_id(username, constants.REGION_NA)
-    aram_history = get_aram_history(account_id, constants.REGION_NA, game_count, champ_dict)
-    aggregated_history = aggregate_aram_history(aram_history, champ_dict)
-    output_history(aggregated_history, username)
+def get_aram_winrates(username: str, region: str, game_count: int) -> pd.DataFrame:
+    """Returns winrates for each champ over specified number of games.
 
-process_player('Dorito Sensei', 50)
+    Args:
+        username (string): The username of the player to query
+        region (string): The region of the given player
+        game_count (int): How many games to query over
+
+    Returns:
+        pd.DataFrame: Contains [champion, wins, games played, winrate] for every champion
+    """
+    champ_dict = get_champ_dict(region)
+    account_id = get_account_id(username, region)
+    aram_history_list = get_aram_history(account_id, region, game_count, champ_dict)
+    aggregated_history = aggregate_aram_history(aram_history_list, champ_dict)
+    formatted_history = format_history(aggregated_history, username)
+    return formatted_history    
+
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print(sys.argv)
+        print("Usage: python aram_winrate.py [username] [games played]")
+        print("Only NA is supported via command line")
+        exit(0)
+    username = sys.argv[1]
+    game_count = int(sys.argv[2])
+    aram_winrates = get_aram_winrates(username, constants.REGION_NA, game_count)
+    aram_winrates.to_csv('data/' + username + '.csv', index=False)
