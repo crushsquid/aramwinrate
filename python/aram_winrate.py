@@ -96,7 +96,7 @@ def format_history(aggregated_history, username):
 
 # Writes data frame as csv
 def write_csv(df, filename):
-    df.to_csv('data/' + filename, index=False)
+    df.to_csv('../data/' + filename, index=False)
 
 def get_aram_winrates(username: str, region: str) -> pd.DataFrame:
     """Returns winrates for each champ over specified number of games.
