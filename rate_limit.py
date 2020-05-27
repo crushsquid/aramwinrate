@@ -1,4 +1,5 @@
 import time
+from riotwatcher import ApiError
 
 class RateLimitRule:
 
@@ -37,6 +38,39 @@ class RateLimiter:
             rule.enforce()
         try:
             return func(*args)
-        except Exception:
-            print("Oops")
-            return self.call(func, *args)
+        except ApiError as err:
+            if err.response.status_code == 400:
+                print("Error 400 - Bad request")
+                exit(1)
+            elif err.response.status_code == 401:
+                print("Error 401 - Unauthorized")
+                exit(1)
+            elif err.response.status_code == 403:
+                print("Error 403 - Forbidden")
+                exit(1)
+            elif err.response.status_code == 404:
+                print("Error 404 - Data not found")
+                exit(1)
+            elif err.response.status_code == 405:
+                print("Error 405 - Method not allowed")
+                exit(1)
+            elif err.response.status_code == 415:
+                print("Error 415 - Unsupported media type")
+                exit(1)
+            elif err.response.status_code == 429:
+                print("Error 429 - Rate limit exceeded")
+                return self.call(func, *args)
+            elif err.response.status_code == 500:
+                print("Error 500 - Internal server error")
+                return self.call(func, *args)
+            elif err.response.status_code == 502:
+                print("Error 502 - Bad gateway")
+                return self.call(func, *args)
+            elif err.response.status_code == 503:
+                print("Error 503 - Service unavailable")
+                return self.call(func, *args)
+            elif err.response.status_code == 504:
+                print("Error 504 - Gateway timeout")
+                return self.call(func, *args)
+            else:
+                raise
