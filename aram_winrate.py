@@ -57,11 +57,14 @@ def get_match_info(match, account_id, champ_dict):
     return (win, champ)
 
 # Returns list of (win: bool, champ_name: string) for a given player
-def get_aram_history(account_id, region, game_count, champ_dict, batch_size=10):
+def get_aram_history(account_id, region, champ_dict, batch_size=10):
     aram_history, aram_games = [], []
-    for start in range(0, game_count, batch_size):
+    aram_games_batch, start = [0], 0
+    # Keep getting new batches while the previous batch was not empty
+    while aram_games_batch != []:
         aram_games_batch = get_aram_games(account_id, region, start, start + batch_size)
         aram_games.extend(aram_games_batch)
+        start += batch_size
     for game in aram_games:
         match = get_match(game, region)
         match_info = get_match_info(match, account_id, champ_dict)
@@ -95,31 +98,29 @@ def format_history(aggregated_history, username):
 def write_csv(df, filename):
     df.to_csv('data/' + filename, index=False)
 
-def get_aram_winrates(username: str, region: str, game_count: int) -> pd.DataFrame:
+def get_aram_winrates(username: str, region: str) -> pd.DataFrame:
     """Returns winrates for each champ over specified number of games.
 
     Args:
         username (string): The username of the player to query
         region (string): The region of the given player
-        game_count (int): How many games to query over
 
     Returns:
         pd.DataFrame: Contains [champion, wins, games played, winrate] for every champion
     """
     champ_dict = get_champ_dict(region)
     account_id = get_account_id(username, region)
-    aram_history_list = get_aram_history(account_id, region, game_count, champ_dict)
+    aram_history_list = get_aram_history(account_id, region, champ_dict)
     aggregated_history = aggregate_aram_history(aram_history_list, champ_dict)
     formatted_history = format_history(aggregated_history, username)
     return formatted_history    
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 2:
         print(sys.argv)
-        print("Usage: python aram_winrate.py [username] [games played]")
+        print("Usage: python aram_winrate.py [username]")
         print("Only NA is supported via command line")
         exit(0)
     username = sys.argv[1]
-    game_count = int(sys.argv[2])
-    aram_winrates = get_aram_winrates(username, constants.REGION_NA, game_count)
+    aram_winrates = get_aram_winrates(username, constants.REGION_NA)
     write_csv(aram_winrates, username + '.csv')
