@@ -3,7 +3,7 @@ from api_key import key
 from rate_limit import RateLimitRule, RateLimiter
 import pandas as pd
 import constants
-import sys
+import json, sys
 
 watcher = LolWatcher(key)
 
@@ -83,13 +83,21 @@ def aggregate_aram_history(aram_history, champ_dict):
 # Format aggregated history into pandas dataframe
 def format_history(aggregated_history, username):
     rows = []
+    total_wins, total_games = 0, 0
+    # Calculate winrate for each champion
     for champ, entry in aggregated_history.items():
         win_count, games_played = entry
         winrate = win_count / max(1, games_played)
         winrate = round(100*winrate, 1)
         row = [champ, win_count, games_played, winrate]
         rows.append(row)
+        total_wins += win_count
+        total_games += games_played
+
     field_names = ['champion', 'wins', 'games played', 'winrate']
+    overall_winrate = total_wins / max(1, total_games)
+    overall_winrate = round(100*overall_winrate, 1)
+    rows.append(['overall', total_wins, total_games, overall_winrate])
     df = pd.DataFrame(rows, columns=field_names)
     df.sort_values(by=['games played'], inplace=True, ascending=False)
     return df
@@ -98,7 +106,7 @@ def format_history(aggregated_history, username):
 def write_csv(df, filename):
     df.to_csv('../data/' + filename, index=False)
 
-def get_aram_winrates(username: str, region: str) -> pd.DataFrame:
+def get_aram_winrates_dataframe(username: str, region: str) -> pd.DataFrame:
     """Returns winrates for each champ over specified number of games.
 
     Args:
@@ -113,7 +121,28 @@ def get_aram_winrates(username: str, region: str) -> pd.DataFrame:
     aram_history_list = get_aram_history(account_id, region, champ_dict)
     aggregated_history = aggregate_aram_history(aram_history_list, champ_dict)
     formatted_history = format_history(aggregated_history, username)
-    return formatted_history    
+    return formatted_history
+
+def get_aram_winrates(username: str, region: str) -> str:
+    """Returns winrates for each champ over specified number of games.
+
+    Args:
+        username (string): The username of the player to query
+        region (string): The region of the given player
+
+    Returns:
+        json object: Object is {champion: {total wins: n, games played: n, winrate: n}}
+    """
+    json_object = {} 
+    df = get_aram_winrates_dataframe(username, region)
+    for _, row in df.iterrows():
+        champion = row['champion']
+        wins = row['wins']
+        games_played = row['games played']
+        winrate = row['winrate']
+        entry = {'wins': wins, 'games played': games_played, 'winrate': winrate}
+        json_object[champion] = entry
+    return json.dumps(json_object)
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
@@ -122,5 +151,5 @@ if __name__ == '__main__':
         print("Only NA is supported via command line")
         exit(0)
     username = sys.argv[1]
-    aram_winrates = get_aram_winrates(username, constants.REGION_NA)
+    aram_winrates = get_aram_winrates_dataframe(username, constants.REGION_NA)
     write_csv(aram_winrates, username + '.csv')
