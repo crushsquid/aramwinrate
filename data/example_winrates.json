@@ -1,0 +1,747 @@
+{
+    "overall":{
+       "wins":84,
+       "games played":112,
+       "winrate":75.0
+    },
+    "Lucian":{
+       "wins":6,
+       "games played":6,
+       "winrate":100.0
+    },
+    "Nautilus":{
+       "wins":4,
+       "games played":6,
+       "winrate":66.7
+    },
+    "Veigar":{
+       "wins":5,
+       "games played":5,
+       "winrate":100.0
+    },
+    "Sivir":{
+       "wins":4,
+       "games played":5,
+       "winrate":80.0
+    },
+    "Sona":{
+       "wins":4,
+       "games played":5,
+       "winrate":80.0
+    },
+    "Jinx":{
+       "wins":3,
+       "games played":4,
+       "winrate":75.0
+    },
+    "Ashe":{
+       "wins":4,
+       "games played":4,
+       "winrate":100.0
+    },
+    "Tristana":{
+       "wins":2,
+       "games played":4,
+       "winrate":50.0
+    },
+    "Soraka":{
+       "wins":4,
+       "games played":4,
+       "winrate":100.0
+    },
+    "Jhin":{
+       "wins":3,
+       "games played":4,
+       "winrate":75.0
+    },
+    "Leblanc":{
+       "wins":2,
+       "games played":3,
+       "winrate":66.7
+    },
+    "Vayne":{
+       "wins":1,
+       "games played":3,
+       "winrate":33.3
+    },
+    "TwistedFate":{
+       "wins":1,
+       "games played":3,
+       "winrate":33.3
+    },
+    "Maokai":{
+       "wins":3,
+       "games played":3,
+       "winrate":100.0
+    },
+    "Chogath":{
+       "wins":2,
+       "games played":3,
+       "winrate":66.7
+    },
+    "MasterYi":{
+       "wins":3,
+       "games played":3,
+       "winrate":100.0
+    },
+    "MissFortune":{
+       "wins":2,
+       "games played":2,
+       "winrate":100.0
+    },
+    "Karthus":{
+       "wins":2,
+       "games played":2,
+       "winrate":100.0
+    },
+    "Hecarim":{
+       "wins":2,
+       "games played":2,
+       "winrate":100.0
+    },
+    "Leona":{
+       "wins":2,
+       "games played":2,
+       "winrate":100.0
+    },
+    "Garen":{
+       "wins":2,
+       "games played":2,
+       "winrate":100.0
+    },
+    "Xerath":{
+       "wins":2,
+       "games played":2,
+       "winrate":100.0
+    },
+    "Thresh":{
+       "wins":2,
+       "games played":2,
+       "winrate":100.0
+    },
+    "Yuumi":{
+       "wins":1,
+       "games played":2,
+       "winrate":50.0
+    },
+    "Amumu":{
+       "wins":0,
+       "games played":2,
+       "winrate":0.0
+    },
+    "Corki":{
+       "wins":1,
+       "games played":2,
+       "winrate":50.0
+    },
+    "Twitch":{
+       "wins":1,
+       "games played":2,
+       "winrate":50.0
+    },
+    "Lulu":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Karma":{
+       "wins":0,
+       "games played":1,
+       "winrate":0.0
+    },
+    "Vladimir":{
+       "wins":0,
+       "games played":1,
+       "winrate":0.0
+    },
+    "Kassadin":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Varus":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Zed":{
+       "wins":0,
+       "games played":1,
+       "winrate":0.0
+    },
+    "Quinn":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Xayah":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Lux":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Sylas":{
+       "wins":0,
+       "games played":1,
+       "winrate":0.0
+    },
+    "Morgana":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Nasus":{
+       "wins":0,
+       "games played":1,
+       "winrate":0.0
+    },
+    "Zac":{
+       "wins":0,
+       "games played":1,
+       "winrate":0.0
+    },
+    "Nunu":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Ornn":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Mordekaiser":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Fizz":{
+       "wins":0,
+       "games played":1,
+       "winrate":0.0
+    },
+    "Illaoi":{
+       "wins":0,
+       "games played":1,
+       "winrate":0.0
+    },
+    "Ezreal":{
+       "wins":0,
+       "games played":1,
+       "winrate":0.0
+    },
+    "Blitzcrank":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Ekko":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Draven":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Brand":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "JarvanIV":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Ivern":{
+       "wins":1,
+       "games played":1,
+       "winrate":100.0
+    },
+    "Singed":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Taliyah":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Tryndamere":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Trundle":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Shaco":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Caitlyn":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Camille":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Teemo":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Taric":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Talon":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "TahmKench":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Shen":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Syndra":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Braum":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Swain":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Darius":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Diana":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Skarner":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Shyvana":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Sion":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Cassiopeia":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Jax":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Udyr":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Senna":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Zyra":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Zoe":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Zilean":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Ziggs":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Akali":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Alistar":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Anivia":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Yorick":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Yasuo":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "XinZhao":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Annie":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Aphelios":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Warwick":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Volibear":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "AurelionSol":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Viktor":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Vi":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Velkoz":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Azir":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Bard":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Urgot":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Sett":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Riven":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Sejuani":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Fiora":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Malzahar":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Malphite":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Gangplank":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Gnar":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Gragas":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Lissandra":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Graves":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "LeeSin":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Heimerdinger":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "KogMaw":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Kled":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Kindred":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Khazix":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Kennen":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Kayn":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Kayle":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Katarina":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Irelia":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Kalista":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Kaisa":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Janna":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Galio":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "MonkeyKing":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Ryze":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Ahri":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Rumble":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Jayce":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Rengar":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Renekton":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "RekSai":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Rammus":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Rakan":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "DrMundo":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Qiyana":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Pyke":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Poppy":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Pantheon":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Orianna":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Olaf":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Elise":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Nocturne":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Nidalee":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Neeko":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Evelynn":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Nami":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Fiddlesticks":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    },
+    "Aatrox":{
+       "wins":0,
+       "games played":0,
+       "winrate":0.0
+    }
+ }
